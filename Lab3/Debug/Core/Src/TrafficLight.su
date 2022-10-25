@@ -1,0 +1,12 @@
+TrafficLight.c:18:6:setRedLed1	8	static
+TrafficLight.c:30:6:setYellowLed1	8	static
+TrafficLight.c:42:6:setGreenLed1	8	static
+TrafficLight.c:54:6:setRedLed2	8	static
+TrafficLight.c:66:6:setYellowLed2	8	static
+TrafficLight.c:78:6:setGreenLed2	8	static
+TrafficLight.c:91:6:toggleRed1	8	static
+TrafficLight.c:94:6:toggleYellow1	8	static
+TrafficLight.c:97:6:toggleGreen1	8	static
+TrafficLight.c:100:6:toggleRed2	8	static
+TrafficLight.c:103:6:toggleYellow2	8	static
+TrafficLight.c:106:6:toggleGreen2	8	static

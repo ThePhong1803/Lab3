@@ -1,0 +1,68 @@
+/*
+ * fsm_automatic.c
+ *
+ *  Created on: Oct 25, 2022
+ *      Author: PC
+ */
+
+
+#include "fsm_automatic.h"
+
+void fsm_automatic_run(){
+	switch(status){
+		case INIT:
+			//TODO
+			setRedLed1();
+			status = AUTO_RED;
+			setTimer1(500);
+			break;
+
+		case AUTO_RED:
+			//TODO
+			if(isTimer1Expired() == 1){
+				setGreenLed1();
+				setTimer1(300);
+				status = AUTO_GREEN;
+			}
+
+			if(buttonState == BUTTON_PRESSED){
+				status = AUTO_GREEN;
+				setTimer1(1000);
+			}
+			break;
+
+		case AUTO_GREEN:
+			//TODO
+
+			if(isTimer1Expired() == 1){
+				setYellowLed1();
+				setTimer1(200);
+				status = AUTO_YELLOW;
+			}
+
+			if(buttonState == BUTTON_PRESSED){
+				status = AUTO_YELLOW;
+				setTimer1(1000);
+			}
+			break;
+
+		case AUTO_YELLOW:
+			//TODO
+
+			if(isTimer1Expired() == 1){
+				setRedLed1();
+				setTimer1(500);
+				status = AUTO_RED;
+			}
+
+			if(buttonState == BUTTON_PRESSED){
+				status = AUTO_RED;
+				setTimer1(1000);
+			}
+
+			break;
+
+		default:
+			break;
+	}
+}

@@ -1,0 +1,18 @@
+/*
+ * fsm_modify_timer_control.h
+ *
+ *  Created on: Oct 26, 2022
+ *      Author: PC
+ */
+
+
+#include "fsm_modify_timer_control.h"
+
+void fsm_modify_timer_control(){
+	switch(state){
+		case MODIFY_RED:
+			break;
+		default:
+			break;
+	}
+}

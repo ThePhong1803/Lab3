@@ -1,0 +1,11 @@
+/*
+ * global.c
+ *
+ *  Created on: Oct 25, 2022
+ *      Author: PC
+ */
+
+
+#include "global.h"
+
+int status = AUTO_RED;

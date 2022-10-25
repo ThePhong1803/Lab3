@@ -1,0 +1,58 @@
+/*
+ * fsm_modify_timer_control.h
+ *
+ *  Created on: Oct 26, 2022
+ *      Author: PC
+ */
+
+
+#include "fsm_modify_timer_control.h"
+
+void fsm_modify_timer_control(){
+	switch(status){
+		case MODIFY_RED:
+			mode = 2;
+			if(isTimer1Expired()) {
+				setTimer1(10);
+				toggleRed1();
+				toggleRed2();
+			}
+			if(isButtonPressed(RETURN)) {
+				setTimer1(red_duration);
+				status = lastState;
+			}
+			if(isButtonPressed(SET_TIME))
+			if(isButtonPressed(CONTROL_MODE)) status = MODIFY_YELLOW;
+			break;
+		case MODIFY_YELLOW:
+			mode = 3;
+			if(isTimer1Expired()) {
+				setTimer1(10);
+				toggleYellow1();
+				toggleYellow2();
+			}
+
+			if(isButtonPressed(RETURN)){
+				setTimer1(yellow_duration);
+				status = lastState;
+			}
+			if(isButtonPressed(CONTROL_MODE)) status = MODIFY_GREEN;
+			break;
+		case MODIFY_GREEN:
+			mode = 4;
+			if(isTimer1Expired()) {
+				setTimer1(10);
+				toggleGreen1();
+				toggleGreen2();
+			}
+
+			if(isButtonPressed(RETURN)) {
+				setTimer1(green_duration);
+				status = lastState;
+			}
+			if(isButtonPressed(CONTROL_MODE)) status = lastState;
+			break;
+		default:
+			break;
+	}
+}

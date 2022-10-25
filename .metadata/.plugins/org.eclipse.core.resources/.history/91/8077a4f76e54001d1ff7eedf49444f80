@@ -1,0 +1,47 @@
+/*
+ * input_processing.c
+ *
+ *  Created on: Oct 25, 2022
+ *      Author: PC
+ */
+
+
+#include "main.h"
+#include "input_processing.h"
+
+ButtonState buttonState = BUTTON_RELEASED;
+
+unsigned char buttonFlag[NO_OF_BUTTONS];
+
+void buttonFlagsClear(){
+	for(unsigned char i = 0; i < NO_OF_BUTTONS; i++) buttonFlags[i] = 0;
+}
+
+void fsm_for_input_processing(void){
+	switch(buttonState){
+		case BUTTON_RELEASED:
+			if(is_button_pressed(0)){
+				buttonState = BUTTON_PRESSED;
+				//increase value of PORTA by one unit
+			}
+			break;
+		case BUTTON_PRESSED:
+			if(!is_button_pressed(0)){
+				buttonState = BUTTON_RELEASED;
+			} else {
+				if(is_button_pressed_1s(0)){
+					buttonState = BUTTON_PRESSED_MORE_THAN_1_SECOND;
+				}
+			}
+			break;
+		case BUTTON_PRESSED_MORE_THAN_1_SECOND:
+			if(!is_button_pressed(0)){
+				buttonState = BUTTON_RELEASED;
+			}
+			break;
+			//todo
+		default:
+			break;
+	}
+}
+
