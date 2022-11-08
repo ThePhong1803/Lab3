@@ -10,6 +10,8 @@
 
 #include "main.h"
 
+#define LED7PORT GPIOB
+
 void update7Segment();
 
 #endif /* INC_7SEGMENTDISPLAY_H_ */

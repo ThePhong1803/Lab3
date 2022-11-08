@@ -6,15 +6,33 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="isButtonPressed(0)"/>
+		<item key="selection" value="timeCountdown1"/>
 		<list key="findhistory">
-			<item value="buttonState == BUTTON_PRESSED"/>
-			<item value="GPIO"/>
-			<item value="buttonState"/>
-			<item value="Prescaler"/>
-			<item value="is_button_pressed(0)"/>
+			<item value="timeCountdown1"/>
+			<item value="set dis"/>
+			<item value="set the "/>
+			<item value="set"/>
+			<item value="status3"/>
+			<item value="state3"/>
+			<item value="Timer2"/>
+			<item value="isTimer2"/>
+			<item value="Timer2(100)"/>
+			<item value="Timer1(100)"/>
+			<item value="setTimer1(100);"/>
+			<item value="timer1"/>
+			<item value="Timer3"/>
+			<item value="timer3"/>
+			<item value="green_duration2"/>
 		</list>
 		<list key="replacehistory">
+			<item value="Timer1"/>
+			<item value="isTimer1"/>
+			<item value="Timer1(100)"/>
+			<item value="setTimer2(100);"/>
+			<item value="Timer2"/>
+			<item value=""/>
+			<item value="|= 0xff00"/>
+			<item value="| = 0x00ff"/>
 			<item value="isButtonPressed(0)"/>
 			<item value="getButtonState()"/>
 			<item value="buttonState == BUTTON_PRESSED"/>

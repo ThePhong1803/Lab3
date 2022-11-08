@@ -26,4 +26,6 @@ void toggleGreen1();
 void toggleRed2();
 void toggleYellow2();
 void toggleGreen2();
+
+void clearAllLed();
 #endif /* INC_TRAFFICLIGHT_H_ */

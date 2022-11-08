@@ -1,23 +1,10 @@
-01:40:54 **** Incremental Build of configuration Debug for project Lab3 ****
+21:21:00 **** Incremental Build of configuration Debug for project Lab3 ****
 make -j12 all 
-arm-none-eabi-gcc "../Core/Src/fsm_modify_timer_control.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/fsm_modify_timer_control.d" -MT"Core/Src/fsm_modify_timer_control.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/fsm_modify_timer_control.o"
-arm-none-eabi-gcc -o "Lab3.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\PC\Desktop\Lab3_repo\Lab3\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lab3.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: Lab3.elf
- 
 arm-none-eabi-size   Lab3.elf 
-arm-none-eabi-objdump -h -S  Lab3.elf  > "Lab3.list"
-arm-none-eabi-objcopy  -O ihex  Lab3.elf  "Lab3.hex"
-arm-none-eabi-objcopy  -O binary  Lab3.elf  "Lab3.bin"
    text	   data	    bss	    dec	    hex	filename
-   9884	     52	   1708	  11644	   2d7c	Lab3.elf
+  12948	     84	   1748	  14780	   39bc	Lab3.elf
 Finished building: default.size.stdout
  
-Finished building: Lab3.hex
-Finished building: Lab3.bin
- 
- 
-Finished building: Lab3.list
- 
 
-01:40:55 Build Finished. 0 errors, 0 warnings. (took 722ms)
+21:21:00 Build Finished. 0 errors, 0 warnings. (took 265ms)
 

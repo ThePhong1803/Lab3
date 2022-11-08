@@ -10,3 +10,4 @@ TrafficLight.c:97:6:toggleGreen1	8	static
 TrafficLight.c:100:6:toggleRed2	8	static
 TrafficLight.c:103:6:toggleYellow2	8	static
 TrafficLight.c:106:6:toggleGreen2	8	static
+TrafficLight.c:110:6:clearAllLed	8	static

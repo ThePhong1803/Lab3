@@ -1,0 +1,172 @@
+/*
+ * fsm_automatic.c
+ *
+ *  Created on: Oct 25, 2022
+ *      Author: PC
+ */
+
+
+#include "fsm_automatic.h"
+
+void fsm1_automatic_run(){
+	switch(status1){
+		case INIT:
+			//TODO
+			setRedLed1();
+			status1 = AUTO_RED;
+			lastState1 = status1;
+			setTimer1(red_duration1);
+			setTimer3(100);
+			timeCountdown1 = red_duration1;
+			set1 = &timeCountdown1;
+			mode = 1;
+			break;
+
+		case AUTO_RED:
+			//TODO
+			//set the red led on on side of the traffic light
+			//and set the green led on the other side of the traffic light
+			setRedLed1();
+			mode = 1;
+			if(isTimer3Expired()){
+				setTimer3(1000);
+				timeCountdown1--;
+			}
+			if(isTimer1Expired() == 1){
+				setTimer1(green_duration1);
+				status1 = AUTO_GREEN;
+				setTimer3(100);
+				timeCountdown1 = green_duration1;
+			}
+
+			if(isButtonPressed(0)){
+				lastState1 = status1;
+				status1 = MODIFY_RED1;
+				clearTimer1();
+				clearTimer3();
+				setTimer1(100);
+			}
+			break;
+
+		case AUTO_GREEN:
+			//TODO
+			mode = 1;
+			setGreenLed1();
+			if(isTimer3Expired()){
+				setTimer3(1000);
+				timeCountdown1--;
+			}
+			if(isTimer1Expired() == 1){
+				setTimer1(yellow_duration1);
+				status1 = AUTO_YELLOW;
+				setTimer3(100);
+				timeCountdown1 = yellow_duration1;
+			}
+
+			if(isButtonPressed(0)){
+				lastState1 = status1;
+				status1 = MODIFY_RED1;
+				clearTimer1();
+				clearTimer3();
+				setTimer1(100);
+			}
+			break;
+
+		case AUTO_YELLOW:
+			//TODO
+			mode = 1;
+			setYellowLed1();
+			if(isTimer3Expired()){
+				setTimer3(1000);
+				timeCountdown1--;
+			}
+			if(isTimer1Expired() == 1){
+				setTimer1(red_duration1);
+				status1 = AUTO_RED;
+				setTimer3(100);
+				timeCountdown1 = red_duration1;
+			}
+
+			if(isButtonPressed(0)){
+				lastState1 = status1;
+				status1 = MODIFY_RED1;
+				clearTimer1();
+				setTimer1(100);
+			}
+			break;
+
+		default:
+			break;
+	}
+}
+
+
+void fsm2_automatic_run(){
+	switch(status2){
+		case INIT:
+			//TODO
+			setRedLed2();
+			status2 = AUTO_RED;
+			lastState2 = status2;
+			setTimer2(red_duration2);
+			timeCountdown2 = red_duration2;
+			mode = 1;
+			break;
+
+		case AUTO_RED:
+			//TODO
+			//set the red led on on side of the traffic light
+			//and set the green led on the other side of the traffic light
+			setRedLed2();
+			mode = 7;
+			if(isTimer2Expired() == 1){
+				setTimer2(green_duration2);
+				status2 = AUTO_GREEN;
+			}
+
+			if(isButtonPressed(0)){
+				lastState2 = status2;
+				status2 = WAIT;
+				clearTimer2();
+				setTimer2(100);
+			}
+			break;
+
+		case AUTO_GREEN:
+			//TODO
+			mode = 1;
+			setGreenLed2();
+			if(isTimer2Expired() == 1){
+				setTimer2(yellow_duration2);
+				status2 = AUTO_YELLOW;
+			}
+
+			if(isButtonPressed(0)){
+				lastState2 = status2;
+				status2 = WAIT;
+				clearTimer2();
+				setTimer2(100);
+			}
+			break;
+
+		case AUTO_YELLOW:
+			//TODO
+			mode = 1;
+			setYellowLed2();
+			if(isTimer2Expired() == 1){
+				setTimer2(red_duration2);
+				status2 = AUTO_RED;
+			}
+
+			if(isButtonPressed(0)){
+				lastState2 = status2;
+				status2 = WAIT;
+				clearTimer2();
+				setTimer2(100);
+			}
+			break;
+
+		default:
+			break;
+	}
+}
